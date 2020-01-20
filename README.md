@@ -1,6 +1,6 @@
 # GrawnMustache.js
 
-A template package extended [mustache.js](https://github.com/janl/mustache.js) that provides "Template Extension".
+A template package extended [mustache.js](https://github.com/janl/mustache.js) for providing Extension.
 
 # Installation
 
