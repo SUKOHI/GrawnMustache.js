@@ -1,6 +1,6 @@
 {
   "name": "grown-mustache",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A template package extended mustache.js for providing Extension.",
   "main": "GrownMustache.js",
   "scripts": {
@@ -8,5 +8,8 @@
   },
   "keywords": ["template", "mustache"],
   "author": "Sukohi Kuhoh",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies" : {
+    "mustache": "^3.1.0"
+  }
 }
