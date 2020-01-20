@@ -1,0 +1,12 @@
+{
+  "name": "grown-mustache",
+  "version": "1.0.0",
+  "description": "A template package extended mustache.jsthat provides Template Extension.",
+  "main": "GrownMustache.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["template", "mustache"],
+  "author": "Sukohi Kuhoh",
+  "license": "MIT"
+}
