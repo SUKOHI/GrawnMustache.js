@@ -12,7 +12,7 @@ Run the following command.
 
 Load the package as follows.
 
-    const GrownMustache = require('GrownMustache');
+    const GrownMustache = require('grown-mustache');
 
 # Usage
 
