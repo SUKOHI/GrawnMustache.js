@@ -113,7 +113,7 @@ Use it as follows.
 `express()` can receive a callback function as the first argument.  
 It will be called before rendering.
 
-    app.engine('mst', GrownMustache.express(gm => {
+    app.engine('mst', GrownMustache.express((gm, path, options) => {
 
       gm.set({
         key1: 'value1',

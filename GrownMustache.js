@@ -144,25 +144,14 @@ class GrownMustache {
           dir: settings.views,
           extension: settings['view engine']
         });
-        let params = {};
-
-        for(let key in options) {
-
-          if(!['settings', '_locals', 'cache'].includes(key)) {
-
-            params[key] = options[key];
-
-          }
-
-        }
 
         if(typeof beforeRendering === 'function') {
 
-          gm = beforeRendering(gm);
+          gm = beforeRendering(gm, path, options);
 
         }
 
-        const content = gm.render(path, params);
+        const content = gm.render(path, options);
         return callback(null, content);
 
       } catch(error) {

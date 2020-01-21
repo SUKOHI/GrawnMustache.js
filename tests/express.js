@@ -3,7 +3,9 @@ const app = express();
 const GrownMustache = require('../GrownMustache');
 
 // Template
-app.engine('mst', GrownMustache.express(gm => {
+app.engine('mst', GrownMustache.express((gm, path, options) => {
+
+  console.log(path, options);
 
   gm.set({
     key1: 'value1',
