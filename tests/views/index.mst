@@ -1,0 +1,14 @@
+@extends('layouts/app')
+
+@section('title')
+
+    <title>Test title</title>
+
+@stop
+
+@section('content')
+
+    <h1>Test content</h1>
+    <div>{{ message }}</div>
+
+@stop

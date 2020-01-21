@@ -1,0 +1,10 @@
+<html>
+  <head>
+      @yield('title')
+  </head>
+  <body>
+    <div id="app">
+        @yield('content')
+    </div>
+  </body>
+</html>
