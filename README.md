@@ -124,6 +124,20 @@ It will be called before rendering.
 
     }));
 
+# Display mustache as is
+
+This feature is shortcut of `{{=<% %>=}}` and `<%={{ }}=%>` that means showing as is.
+
+    @{{ test1 }}
+    @{{ test2 }}
+    @{{ test3 }}
+
+(Output)
+
+    {{ test1 }}
+    {{ test2 }}
+    {{ test3 }}
+
 # License
 
 This package is licensed under the MIT License.  

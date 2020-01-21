@@ -17,10 +17,12 @@ class GrownMustache {
     this.set(params);
     const rawContent = this.getFileContent(path);
     const lines = rawContent.split("\n");
-    let extensionPath = '';
-    let sectionKey = '';
-    let sectionLines = [];
-    let sections = {};
+    let renderedContent = '',
+        extensionPath = '',
+        sectionKey = '',
+        sectionLines = [],
+        sections = {};
+
 
     for(let rawLine of lines) {
 
@@ -83,12 +85,18 @@ class GrownMustache {
 
       }
 
-      const content = lines.join("\n");
-      return mustache.render(content, this.parameters);
+      renderedContent = lines.join("\n");
+
+    } else {
+
+      renderedContent = rawContent;
 
     }
 
-    return mustache.render(rawContent, this.parameters);
+    return mustache.render(
+      this.getRawConvertedText(renderedContent),
+      this.parameters
+    );
 
   }
 
@@ -129,6 +137,16 @@ class GrownMustache {
 
     const filePath = this.getFilePath(path);
     return fs.readFileSync(filePath, 'utf8');
+
+  }
+
+  getRawConvertedText(text) {
+
+    return text.replace(/@(\{\{[^\}]+\}\})/g, (matches, rawText) => {
+
+      return '{{=<% %>=}}'+ rawText +'<%={{ }}=%>';
+
+    });
 
   }
 

@@ -16,5 +16,9 @@
       {{ key2 }}<br>
       {{ key3 }}
     </div>
+    <!-- for Vue.js etc... -->
+    @{{ test1 }}
+    @{{ test2 }}
+    @{{ test3 }}
 
 @stop
