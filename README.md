@@ -81,6 +81,19 @@ Finally, call `render()` as follows.
         message: 'Test message'
     });
 
+# Set parameter
+
+You can use `set()` to set parameter(s) replacing with `{{ *** }}`.
+
+    gm.set('key1', 'value1');
+
+or with object.
+
+    gm.set({
+      key2: 'value2',
+      key3: 'value3'
+    });
+
 # Use in Express app
 
 `GrownMustache` has a callback function for Express.  
