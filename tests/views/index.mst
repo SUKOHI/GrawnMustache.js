@@ -10,5 +10,11 @@
 
     <h1>Test content</h1>
     <div>{{ message }}</div>
+    <hr>
+    <div>
+      {{ key1 }}<br>
+      {{ key2 }}<br>
+      {{ key3 }}
+    </div>
 
 @stop

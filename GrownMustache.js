@@ -8,11 +8,13 @@ class GrownMustache {
 
     this.dir = (options.dir !== undefined) ? options.dir : '';
     this.extension = (options.extension !== undefined) ? options.extension : 'mst';
+    this.parameters = {};
 
   }
 
   render(path, params = []) {
 
+    this.set(params);
     const rawContent = this.getFileContent(path);
     const lines = rawContent.split("\n");
     let extensionPath = '';
@@ -82,16 +84,33 @@ class GrownMustache {
       }
 
       const content = lines.join("\n");
-      return mustache.render(content, params);
+      return mustache.render(content, this.parameters);
 
     }
 
-    return mustache.render(rawContent, params);
+    return mustache.render(rawContent, this.parameters);
+
+  }
+
+  set(values) {
+
+    if(arguments.length === 2) {
+
+      const key = arguments[0];
+      const value = arguments[1];
+      values = { [key]: value };
+
+    }
+
+    for(let key in values) {
+
+      this.parameters[key] = values[key];
+
+    }
 
   }
 
   // Getter
-
   getFilePath(filePath) {
 
     const fullDir = path.resolve(this.dir);
