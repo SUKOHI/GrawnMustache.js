@@ -133,35 +133,45 @@ class GrownMustache {
   }
 
   // Static
-  static express(path, options, callback) {
+  static express(beforeRendering) {
 
-    try {
+    return (path, options, callback) => {
 
-      const settings = options.settings;
-      const gm = new GrownMustache({
-        dir: settings.views,
-        extension: settings['view engine']
-      });
-      let params = {};
+      try {
 
-      for(let key in options) {
+        const settings = options.settings;
+        let gm = new GrownMustache({
+          dir: settings.views,
+          extension: settings['view engine']
+        });
+        let params = {};
 
-        if(!['settings', '_locals', 'cache'].includes(key)) {
+        for(let key in options) {
 
-          params[key] = options[key];
+          if(!['settings', '_locals', 'cache'].includes(key)) {
+
+            params[key] = options[key];
+
+          }
 
         }
 
+        if(typeof beforeRendering === 'function') {
+
+          gm = beforeRendering(gm);
+
+        }
+
+        const content = gm.render(path, params);
+        return callback(null, content);
+
+      } catch(error) {
+
+        return callback(error);
+
       }
 
-      const content = gm.render(path, params);
-      return callback(null, content);
-
-    } catch(error) {
-
-      return callback(error);
-
-    }
+    };
 
   }
 

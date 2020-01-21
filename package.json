@@ -4,7 +4,7 @@
   "description": "A template package extended mustache.js for providing Extension.",
   "main": "GrownMustache.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodejs ./tests/express.js"
   },
   "keywords": ["template", "mustache"],
   "author": "Sukohi Kuhoh",

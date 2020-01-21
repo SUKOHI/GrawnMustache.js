@@ -12,7 +12,7 @@ Run the following command.
 
 Load the package as follows.
 
-    const GrownMustache = require('grown-mustache');
+    const GrownMustache = require('GrownMustache');
 
 # Usage
 
@@ -96,15 +96,33 @@ or with object.
 
 # Use in Express app
 
+## Basic usage in Express.js
+
 `GrownMustache` has a callback function for Express.  
 Use it as follows.
 
     const GrownMustache = require('GrownMustache');
 
     // Template
-    app.engine('mst', GrownMustache.express);
+    app.engine('mst', GrownMustache.express());
     app.set('views', './views');
     app.set('view engine', 'mst');
+
+## with Callback
+
+`express()` can receive a callback function as the first argument.  
+It will be called before rendering.
+
+    app.engine('mst', GrownMustache.express(gm => {
+
+      gm.set({
+        key1: 'value1',
+        key2: 'value2',
+        key3: 'value3'
+      });
+      return gm; // must
+
+    }));
 
 # License
 
