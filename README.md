@@ -138,6 +138,12 @@ This feature is shortcut of `{{=<% %>=}}` and `<%={{ }}=%>` that means showing a
     {{ test2 }}
     {{ test3 }}
 
+# Include partial template
+`@include` directive is also available to load a partial template as follows.
+
+    @include('partials/header')
+    @include('partials/footer')
+
 # License
 
 This package is licensed under the MIT License.  
