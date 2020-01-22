@@ -160,7 +160,7 @@ class GrownMustache {
 
   getIncludedText(text) {
 
-    return text.replace(/@include\([\s"']*([a-z0-9\/]+)[\s"']*\)/g, (matches, path) => {
+    return text.replace(/@include\([\s"']*([a-zA-Z0-9\/]+)[\s"']*\)/g, (matches, path) => {
 
       return this.getFileContent(path);
 
