@@ -27,11 +27,11 @@ class GrownMustache {
     for(let rawLine of lines) {
 
       const line = rawLine.toLowerCase().replace(/[\s"']/g, '');
-      const extendsMatches = line.match(/^@extends\(([a-z0-9\/]+)\)/);
+      const extentionMatches = line.match(/^@extends\(([a-z0-9\/]+)\)/);
 
-      if(extendsMatches) {
+      if(extentionMatches) {
 
-        extensionPath = extendsMatches[1];
+        extensionPath = extentionMatches[1];
         continue;
 
       }
@@ -94,7 +94,7 @@ class GrownMustache {
     }
 
     return mustache.render(
-      this.getRawConvertedText(renderedContent),
+      this.getConvertedText(renderedContent),
       this.parameters
     );
 
@@ -140,11 +140,29 @@ class GrownMustache {
 
   }
 
+  getConvertedText(text) {
+
+    text = this.getRawConvertedText(text);
+    text = this.getIncludedText(text);
+    return text;
+
+  }
+
   getRawConvertedText(text) {
 
     return text.replace(/@(\{\{[^\}]+\}\})/g, (matches, rawText) => {
 
       return '{{=<% %>=}}'+ rawText +'<%={{ }}=%>';
+
+    });
+
+  }
+
+  getIncludedText(text) {
+
+    return text.replace(/@include\([\s"']*([a-z0-9\/]+)[\s"']*\)/g, (matches, path) => {
+
+      return this.getFileContent(path);
 
     });
 

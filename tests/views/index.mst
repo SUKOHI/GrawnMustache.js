@@ -8,17 +8,23 @@
 
 @section('content')
 
-    <h1>Test content</h1>
-    <div>{{ message }}</div>
-    <hr>
-    <div>
-      {{ key1 }}<br>
-      {{ key2 }}<br>
-      {{ key3 }}
-    </div>
-    <!-- for Vue.js etc... -->
-    @{{ test1 }}
-    @{{ test2 }}
-    @{{ test3 }}
+  <!-- Include header template -->
+  @include('partials/header')
+
+  <h1>Test content</h1>
+  <div>{{ message }}</div>
+  <hr>
+  <div>
+    {{ key1 }}<br>
+    {{ key2 }}<br>
+    {{ key3 }}
+  </div>
+  <!-- for Vue.js etc... -->
+  @{{ test1 }}
+  @{{ test2 }}
+  @{{ test3 }}
+
+  <!-- Include footer template -->
+  @include('partials/footer')
 
 @stop

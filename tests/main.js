@@ -12,7 +12,8 @@ gm.set({
 });
 
 const content = gm.render('index', {
-  message: 'Message'
+  message: 'Message',
+  year: 2020
 });
 
 console.log(content);
